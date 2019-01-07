@@ -61,31 +61,11 @@ cat <<EOF > /home/centos/.vimrc
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
 filetype plugin indent on
 set nocompatible
-set number
 set relativenumber
 set cursorline
 set showmatch
 set incsearch
 set hlsearch
 set expandtab
-set tabstop=4
-set shiftwidth=4
-syntax on
-syntax enable
-filetype plugin on
-
-" FINDING FILES:
-" Search subfolders using ':find <filename>'
-" Provides Tab-completion for all file-related tasks
-set path+=**
-
-" Display all matches when we tab complete
-set wildmenu
-
-" NOW WE CAN:
-" - Hit tab to :find by partial match // USAGE :find
-" - Use * to make it fuzzy
-"
-" CONCIDER THIS
-"  :b lets you autocomplete an open buffer
 EOF
+
