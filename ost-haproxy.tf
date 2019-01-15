@@ -150,7 +150,7 @@ resource "openstack_compute_secgroup_v2" "ansible_secgroup" {
     to_port     = 22
     ip_protocol = "tcp"
     cidr        = "37.26.88.73/32"
-  
+    }
 }
 
 
