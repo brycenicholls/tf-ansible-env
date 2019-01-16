@@ -5,19 +5,19 @@ mkdir /home/centos/ansible
 chown -hR centos /home/centos/ansible/
 cat <<EOF >> /home/centos/ansible/inventory
 [all]
-10.1.2.11
-10.1.2.12
-10.1.2.13
-10.1.2.14
-10.1.2.15
+ansible_controller
+node1
+node2
+node3
+node4
 [controller]
-10.1.2.11
+ansible_controller
 [haproxy]
-10.1.2.12
-10.1.2.13
+node1
+node2
 [webservers]
-10.1.2.14
-10.1.2.15
+node3
+node4
 EOF
 
 cat <<EOF >> /etc/hosts
@@ -70,3 +70,14 @@ set hlsearch
 set expandtab
 EOF
 
+cat <<EOF > /root/.vimrc
+autocmd FileType yaml setlocal ai ts=2 sw=2 et
+filetype plugin indent on
+set nocompatible
+set relativenumber
+set cursorline
+set showmatch
+set incsearch
+set hlsearch
+set expandtab
+EOF
