@@ -19,7 +19,17 @@ node2
 node3
 node4
 EOF
-
+cat <<EOF >> /home/centos/ansible/ansible.cfg
+[defaults]
+inventory = ./inventory
+remote_user = centos
+ask_pass = false
+[privilege_escalation]
+become = true
+become_method = sudo
+become_user = root
+become_ask_pass = false
+EOF
 cat <<EOF >> /etc/hosts
 10.1.2.11   ansible_controller
 10.1.2.12   node1
