@@ -2,23 +2,34 @@
 yum install -y epel-release
 yum -y install ansible python vim
 mkdir /home/centos/ansible
+chown -hR centos /home/centos/ansible/
 cat <<EOF >> /home/centos/ansible/inventory
 [all]
-10.1.2.11
-10.1.2.12
-10.1.2.13
-10.1.2.14
-10.1.2.15
+ansible_controller
+node1
+node2
+node3
+node4
 [controller]
-10.1.2.11
+ansible_controller
 [haproxy]
-10.1.2.12
-10.1.2.13
+node1
+node2
 [webservers]
-10.1.2.14
-10.1.2.15
+node3
+node4
 EOF
-
+cat <<EOF >> /home/centos/ansible/ansible.cfg
+[defaults]
+inventory = ./inventory
+remote_user = centos
+ask_pass = false
+[privilege_escalation]
+become = true
+become_method = sudo
+become_user = root
+become_ask_pass = false
+EOF
 cat <<EOF >> /etc/hosts
 10.1.2.11   ansible_controller
 10.1.2.12   node1
@@ -61,31 +72,22 @@ cat <<EOF > /home/centos/.vimrc
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
 filetype plugin indent on
 set nocompatible
-set number
 set relativenumber
 set cursorline
 set showmatch
 set incsearch
 set hlsearch
 set expandtab
-set tabstop=4
-set shiftwidth=4
-syntax on
-syntax enable
-filetype plugin on
+EOF
 
-" FINDING FILES:
-" Search subfolders using ':find <filename>'
-" Provides Tab-completion for all file-related tasks
-set path+=**
-
-" Display all matches when we tab complete
-set wildmenu
-
-" NOW WE CAN:
-" - Hit tab to :find by partial match // USAGE :find
-" - Use * to make it fuzzy
-"
-" CONCIDER THIS
-"  :b lets you autocomplete an open buffer
+cat <<EOF > /root/.vimrc
+autocmd FileType yaml setlocal ai ts=2 sw=2 et
+filetype plugin indent on
+set nocompatible
+set relativenumber
+set cursorline
+set showmatch
+set incsearch
+set hlsearch
+set expandtab
 EOF
