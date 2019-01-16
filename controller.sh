@@ -2,6 +2,7 @@
 yum install -y epel-release
 yum -y install ansible python vim
 mkdir /home/centos/ansible
+chown -hR centos /home/centos/ansible/
 cat <<EOF >> /home/centos/ansible/inventory
 [all]
 10.1.2.11

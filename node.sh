@@ -2,6 +2,7 @@
 
 yum -y update
 yum -y install epel-release
+
 cat <<EOF >> /etc/hosts
 10.1.2.11   ansible_controller
 10.1.2.12   node1
