@@ -137,7 +137,7 @@ resource "openstack_compute_secgroup_v2" "ansible_secgroup" {
     from_port   = -1
     to_port     = -1
     ip_protocol = "icmp"
-    cidr        = "10.1.2.0/24"
+    cidr        = "0.0.0.0/0"
   }
   rule {
     from_port   = 1
