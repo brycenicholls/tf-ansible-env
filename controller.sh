@@ -1,8 +1,10 @@
 #!/bin/bash
 yum install -y epel-release
-yum -y install ansible python vim
+yum -y install ansible python vim git
 mkdir /home/centos/ansible
 chown -hR centos /home/centos/ansible/
+git clone https://github.com/brycenicholls/ansible-labs.git /home/centos/ansible/
+
 cat <<EOF >> /home/centos/ansible/inventory
 [all]
 ansible_controller
@@ -91,3 +93,4 @@ set incsearch
 set hlsearch
 set expandtab
 EOF
+
