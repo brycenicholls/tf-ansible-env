@@ -22,9 +22,11 @@ output "dc-ingress-2" {
   value = "37.26.92.0/24"
 }
 output "dc-ingress-3" {
-  value = "37.26.88.73/32"
+  value = "37.26.88.0/24"
 }
-
+output "intra-tenant" {
+  value = "10.1.2.0/24"
+}
 # ...
 
 output "centos-latest" {

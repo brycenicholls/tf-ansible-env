@@ -15,7 +15,7 @@ resource "openstack_compute_instance_v2" "ansible_controller" {
   network {
     port = "${openstack_networking_port_v2.port_1.id}" 
   }
-  user_data = "${file("controller.sh")}"
+  user_data = "${file("ansible_con.sh")}"
 }
 
 ##----------------------------< node-1 create >----------------------------##
@@ -24,7 +24,7 @@ resource "openstack_compute_instance_v2" "node-1" {
   image_id  = "${module.ci-env.centos-latest}"
   flavor_id = "${module.ci-env.x1-small}"
 
-key_pair        = "bryce"
+key_pair        = "ansible"
   security_groups = ["${openstack_compute_secgroup_v2.ansible_secgroup.name}"]
 
   metadata {
@@ -43,7 +43,7 @@ resource "openstack_compute_instance_v2" "node-2" {
   image_id  = "${module.ci-env.centos-latest}"
   flavor_id = "${module.ci-env.x1-small}"
 
-key_pair        = "bryce"
+key_pair        = "ansible"
   metadata {
     this = "node2"
   }
@@ -62,7 +62,7 @@ resource "openstack_compute_instance_v2" "node-3" {
   image_id  = "${module.ci-env.centos-latest}"
   flavor_id = "${module.ci-env.x1-small}"
 
-key_pair        = "bryce"
+key_pair        = "ansible"
   metadata {
     this = "node3"
   }
@@ -81,7 +81,7 @@ resource "openstack_compute_instance_v2" "node-4" {
   image_id  = "${module.ci-env.centos-latest}"
   flavor_id = "${module.ci-env.x1-small}"
 
-key_pair        = "bryce"
+key_pair        = "ansible"
   metadata {
     this = "node4"
   }
