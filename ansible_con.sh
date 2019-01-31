@@ -94,3 +94,4 @@ set hlsearch
 set expandtab
 EOF
 
+chown -hR centos /home/centos/ansible/
