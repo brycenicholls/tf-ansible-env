@@ -2,6 +2,10 @@
 
 yum -y update
 yum -y install epel-release git vim firewalld
+systemctl start firewalld
+systemctl enable firewalld
+systemctl restart dbus
+systemctl restart firewalld
 
 cat <<EOF >> /etc/hosts
 10.1.2.11   ansible_controller
