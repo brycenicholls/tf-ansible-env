@@ -1,7 +1,7 @@
 #!/bin/bash
 
 yum -y update
-yum -y install epel-release git vim
+yum -y install epel-release git vim firewalld
 
 cat <<EOF >> /etc/hosts
 10.1.2.11   ansible_controller
