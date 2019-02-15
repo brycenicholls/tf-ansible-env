@@ -11,7 +11,7 @@ output "dc-dns-nameservers" {
 }
 
 output "dc-ext-net-id" {
-  value = "df08c5c8-1242-4c62-ae1a-b0db5ef49f74"
+  value = "893a5b59-081a-4e3a-ac50-1e54e262c3fa"
 }
 
 output "dc-ingress-1" {
@@ -30,7 +30,7 @@ output "intra-tenant" {
 # ...
 
 output "centos-latest" {
-  value = "89fdd0fb-5963-46a2-8bd4-b2a38fdad271"
+  value = "073743b4-2eb1-479e-8a30-e480de174141"
   #value = "073743b4-2eb1-479e-8a30-e480de174141"
   # or better get this out of OS directly
   # value = "${data.openstack_images_image_v2.xenial.id}"
@@ -45,7 +45,7 @@ output "rhel-7-lts" {
 
 
 output "x1-small" {
-  value = "89fdd0fb-5963-46a2-8bd4-b2a38fdad271"
+  value = "b281751d-feb4-462a-a916-aef17cb3f5ff"
   #value = "c46be6d1-979d-4489-8ffe-e421a3c83fdd"
   # or better get this out of OS directly
   # value = "${data.openstack_compute_flavor_v2.x1-small.id}"
